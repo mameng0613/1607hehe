@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>test</title>
+		<link href="css/bootstrap.css" rel="stylesheet">
+		<!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+		<style type="text/css">
+			body {
+				font-family: "华文细黑", STHeiti Light, STXihei, "华文细黑", SimHei, "黑体" !important;
+			}
+			
+			.navbar-default {
+				background-image: url(img/bg1.png);
+				background: #9c1e2e;
+				border-color: #9C1E2E;
+			}
+			
+			.navbar-brand {
+				padding-top: 11px;
+			}
+			
+			.navbar-brand img {
+				max-height: 26px;
+			}
+			
+			.navbar-default .navbar-nav li a {
+				color: white;
+			}
+			
+			.navbar-nav>li>a {
+				padding: 15px 0;
+				line-height: 20px;
+			}
+			
+			.nav>li>a {
+				position: relative;
+				display: block;
+				padding: 15px;
+			}
+			
+			.fa {
+				display: inline-block;
+				font: normal normal normal 14px/1 FontAwesome;
+				font-size: inherit;
+				text-rendering: auto;
+				-webkit-font-smoothing: antialiased;
+				-moz-osx-font-smoothing: grayscale;
+			}
+			
+			.fa-shopping-cart:before {
+				content: "\f07a";
+			}
+			
+			.swiper-container {
+				width: 100%;
+				margin: 0 auto;
+				position: relative;
+				overflow: hidden;
+				z-index: 1;
+			}
+			
+			.swiper-wrapper {
+				position: relative;
+				width: 100%;
+				height: 100%;
+				z-index: 1;
+				display: flex;
+				transition-property: transform;
+			}
+			
+			.swiper-slide {
+				-webkit-flex-shrink: 0;
+				-ms-flex: 0 0 auto;
+				-webkit-flex-shrink: 0;
+				-ms-flex-negative: 0;
+				flex-shrink: 0;
+				width: 100%;
+				height: 100%;
+				position: relative;
+			}
+			
+			.swiper-container .swiper-slide img {
+				height: auto;
+				line-height: 1;
+				max-width: 100%;
+			}
+			
+			.swiper-container-horizontal>.swiper-pagination {
+				bottom: 10px;
+				left: 0;
+				width: 100%;
+			}
+			
+			.swiper-pagination {
+				position: absolute;
+				text-align: center;
+				-webkit-transition: 300ms;
+				transition: 300ms;
+				-webkit-transform: translate3d(0, 0, 0);
+				-ms-transform: translate3d(0, 0, 0);
+				transform: translate3d(0, 0, 0);
+				z-index: 10;
+			}
+			
+			.swiper-container-horizontal>.swiper-pagination .swiper-pagination-bullet {
+				margin: 0 5px;
+			}
+			
+			.swiper-pagination-clickable .swiper-pagination-bullet {
+				cursor: pointer;
+			}
+			
+			.swiper-pagination-bullet {
+				background: #9dc819 none repeat scroll 0 0;
+				opacity: 1;
+			}
+			
+			.swiper-pagination-bullet {
+				width: 8px;
+				height: 8px;
+				display: inline-block;
+				border-radius: 100%;
+				background: #000;
+				opacity: .2;
+			}
+			.container {
+			    margin-right: auto;
+			    margin-left: auto;
+			    padding-left: 15px;
+			    padding-right: 15px;
+			}
+			.row {
+			    margin-left: -15px;
+			    margin-right: -15px;
+			}
+			.front-page-header {
+			    margin-top: 20px;
+			    margin-bottom: 15px;
+			    text-align: left;
+			    color: #249136;
+			}
+			.caret-right {
+			    border-left: 4px solid black;
+			    border-right: 0;
+			    border-top: 4px solid transparent;
+			    border-bottom: 4px solid transparent;
+			}
+			.caret {
+			    display: inline-block;
+			    width: 0;
+			    height: 0;
+			    margin-left: 2px;
+			    vertical-align: middle;
+			    border-top: 4px solid;
+			    border-right: 4px solid transparent;
+			    border-left: 4px solid transparent;
+			}
+			.col-md-15 {
+			    width: 20%;
+			    float: left;
+			    position: relative;
+			    min-height: 1px;
+			    padding-right: 10px;
+			    padding-left: 10px;
+			}
+			.img-responsive {
+			    display: block;
+			    max-width: 100%;
+			    height: auto;
+			}
+			.product-category-link {
+			    color: #838383;
+			    font-size: 12px;
+			}
+			.chinese-name .product-set-link {
+			    display: inline;
+			    color: #838383;
+			    font-size: 14px;
+			}
+			.center{
+				text-align: center;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="navbar navbar-default navbar-static-top navbar-fixed-top hidden-xs" role='nav'>
+			<div class="container">
+				<div class="navbar-header">
+					<div class="navbar-brand">
+						<a href="">
+							<img src="img/logo.png" alt="" />
+						</a>
+					</div>
+				</div>
+				<ul class="nav navbar-nav">
+					<li class="dropdown">
+						<a href="" class="dropdown-toggle">
+							<span class="hidden-sm">当前城市：</span>杭州
+							<span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu" role="menu">
+							<li>
+								<a href="">北京</a>
+							</li>
+							<li>
+								<a href="">上海</a>
+							</li>
+							<li>
+								<a href="">天津</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="nav navbar-nav middle-nav-ul hidden-xs">
+					<li class="dropdown-toggle">
+						<a href="" class="dropdown-toggle">
+							产品列表
+							<span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu" role="menu">
+							<li>
+								<a href="">圣诞精选</a>
+							</li>
+							<li>
+								<a href="">迪士尼系列</a>
+							</li>
+							<li>
+								<a href="">礼盒</a>
+							</li>
+							<li>
+								<a href="">蛋糕</a>
+							</li>
+						</ul>
+					</li>
+					<li class="dropdown-toggle">
+						<a href="" class="dropdown-toggle">
+							寻找我们
+							<span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu" role="menu">
+							<li>
+								<a href="">门店</a>
+							</li>
+							<li>
+								<a href="">配送须知</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="">活动</a>
+					</li>
+					<li class="dropdown-toggle">
+						<a href="" class="dropdown-toggle">
+							关于
+							<span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu" role="menu">
+							<li>
+								<a href="">会员</a>
+							</li>
+							<li>
+								<a href="">我们</a>
+							</li>
+							<li>
+								<a href="">礼品卡</a>
+							</li>
+
+						</ul>
+					</li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right hidden-xs">
+					<li id="sign-in-item">
+						<a href="">登录</a>
+					</li>
+					<li id="sign-up-item">
+						<a href="">注册</a>
+					</li>
+					<li id="shopping-cart-summary-nav">
+						<a href="" class="navbar-font-color">
+							<i class="fa fa-shopping-cart">
+    					</i>
+							<span class="hidden-sm">购物车</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="swiper-container pc-slideshows-swiper swiper-container-horizontal" id="front-page-carousel">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide">
+					<a href="">
+						<img src="img/1.jpg" alt="" />
+					</a>
+				</div>
+				<div class="swiper-slide">
+					<a href="">
+						<img src="img/2.jpg" alt="" />
+					</a>
+				</div>
+				<div class="swiper-slide">
+					<a href="">
+						<img src="img/3.jpg" alt="" />
+					</a>
+				</div>
+				<div class="swiper-slide">
+					<a href="">
+						<img src="img/4.jpg" alt="" />
+					</a>
+				</div>
+				<div class="swiper-slide">
+					<a href="">
+						<img src="img/5.jpg" alt="" />
+					</a>
+				</div>
+				<div class="swiper-slide">
+					<a href="">
+						<img src="img/6.jpg" alt="" />
+					</a>
+				</div>
+				<div class="swiper-slide">
+					<a href="">
+						<img src="img/7.jpg" alt="" />
+					</a>
+				</div>
+			</div>
+			<div class="swiper-pagination pc-swiper-pagination swiper-pagination-clickable">
+				<span class="swiper-pagination-bullet"></span>
+				<span class="swiper-pagination-bullet"></span>
+				<span class="swiper-pagination-bullet"></span>
+				<span class="swiper-pagination-bullet"></span>
+				<span class="swiper-pagination-bullet"></span>
+				<span class="swiper-pagination-bullet"></span>
+				<span class="swiper-pagination-bullet"></span>
+			</div>
+		</div>
+		<div class='container marketing center'>
+			<div class='row'>
+				<div class='front-page-header'>
+					<span class='caret caret-right'></span>
+					<b>
+						<a href=''>产品列表</a>
+					</b>
+				</div>
+			</div>
+			<div class='row'>
+				<div class='col-md-15 col-sm-15 col-xs-6'>
+					<div>
+						<a href=''>
+							<img alt='迪士尼系列' class='img-responsive' src="img/img1.jpg">
+						</a>
+					</div>
+					<a class='product-category-link' href=''>
+						Disney / 迪士尼系列
+					</a>
+				</div>
+				<div class='col-md-15 col-sm-15 col-xs-6'>
+					<div>
+						<a href=''>
+							<img alt='蛋糕' class='img-responsive' src="img/img2.jpg">
+						</a>
+					</div>
+					<a class='product-category-link' href=''>
+						Cakes / 蛋糕
+					</a>
+				</div>
+				<div class='col-md-15 col-sm-15 col-xs-6'>
+					<div>
+						<a href=''>
+							<img alt='纸杯蛋糕' class='img-responsive' src='img/img3.jpg'>
+						</a>
+					</div>
+					<a class='product-category-link' href=''>
+						Cupcakes / 纸杯蛋糕
+					</a>
+				</div>
+				<div class='col-md-15 col-sm-15 col-xs-6'>
+					<div>
+						<a href=''>
+							<img alt='圣诞精选' class='img-responsive' src='img/img4.jpg'>
+						</a>
+					</div>
+					<a class='product-category-link' href=''>
+						Christmas Specials / 圣诞精选
+					</a>
+				</div>
+				<div class='col-md-15 col-sm-15 col-xs-6 hidden-xs'>
+					<div>
+						<a href=''>
+							<img alt='派' class='img-responsive' src='img/img5.jpg'>
+						</a>
+					</div>
+					<a class='product-category-link' href=''>
+						Pies / 派
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class='container marketing center'>
+			<div class='row'>
+				<div class='front-page-header'>
+					<span class='caret caret-right'></span>
+					<b>新品推荐</b>
+				</div>
+			</div>
+			<div class='row'>
+				<div class='col-md-3 col-sm-3 col-xs-6'>
+					<div class='front-page-product-set-image-container'>
+						<a href=''>
+							<img alt='小熊维尼主题纸杯蛋糕礼盒' class='img-responsive' src='img/img6.jpg'>
+						</a>
+					</div>
+					<div class='chinese-name'>
+						<a href=''>
+							<h2 class='product-set-link'>小熊维尼主题纸杯蛋糕礼盒</h2>
+						</a>
+						<span class='size-and-price'>
+							礼盒
+							￥199
+						</span>
+					</div>
+				</div>
+				<div class='col-md-3 col-sm-3 col-xs-6'>
+					<div class='front-page-product-set-image-container'>
+						<a href=''>
+							<img class='img-responsive' src='img/img7.jpg'>
+						</a>
+					</div>
+					<div class='chinese-name'>
+						<a href=''>
+							<h2 class='product-set-link'>惊叹雪人蛋糕</h2>
+						</a>
+						<span class='size-and-price'>
+							6吋
+							￥359
+						</span>
+					</div>
+				</div>
+				<div class='col-md-3 col-sm-3 col-xs-6'>
+					<div class='front-page-product-set-image-container'>
+						<a href=''>
+							<img class='img-responsive' src='img/img8.jpg'>
+						</a>
+					</div>
+					<div class='chinese-name'>
+						<a href=''>
+							<h2 class='product-set-link'>惊叹树心蛋糕</h2>
+						</a>
+						<span class='size-and-price'>
+							6吋
+							￥269
+						</span>
+					</div>
+				</div>
+				<div class='col-md-3 col-sm-3 col-xs-6'>
+					<div class='front-page-product-set-image-container'>
+						<a href=''>
+							<img alt='冰雪奇缘套装' class='img-responsive' src='img/img9.jpg'>
+						</a>
+					</div>
+					<div class='chinese-name'>
+						<a href=''>
+							<h2 class='product-set-link'>冰雪奇缘套装</h2>
+						</a>
+						<span class='size-and-price'>
+							礼盒
+							￥499
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="js/jquery-1.11.3.js"></script>
+		<script src="js/bootstrap.js"></script>
+	</body>
+
+</html>
